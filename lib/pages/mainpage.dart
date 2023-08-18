@@ -31,7 +31,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List<Widget> highlightCodeSegmentsNew(String text) {
     List<Widget> widgets = [];
-    final codeRegex = RegExp(r'```python([\s\S]*?)```');
+    // final codeRegex = RegExp(r'```python([\s\S]*?)```');
+    final codeRegex = RegExp(r'```python([\s\S]*?)```|```([\s\S]*?)```');
 
     var matches = codeRegex.allMatches(text);
     int previousEnd = 0;
