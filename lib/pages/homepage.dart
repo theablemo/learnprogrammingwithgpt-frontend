@@ -62,11 +62,21 @@ class _HomePageState extends State<HomePage> {
         ),
         Text(
           'enter_code'.tr,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 15,
           ),
         ),
-        SizedBox(
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          'example_id'.tr,
+          style: const TextStyle(
+            fontWeight: FontWeight.w300,
+            fontSize: 11,
+          ),
+        ),
+        const SizedBox(
           height: 20,
         ),
         Container(
@@ -126,7 +136,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Text(
           "choose_language".tr,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.bold,
           ),
@@ -137,10 +147,10 @@ class _HomePageState extends State<HomePage> {
         //     color: Colors.grey,
         //   ),
         // ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
-        Container(
+        SizedBox(
           width: 200,
           child: GetBuilder<MainController>(
             builder: (_) => Row(
@@ -158,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(10),
                       color: _.locale == LocaleEnum.EN
                           ? Colors.amber
-                          : Color.fromRGBO(0, 0, 0, 0),
+                          : const Color.fromRGBO(0, 0, 0, 0),
                       border: Border.all(
                         color: Colors.amber,
                         width: 3,
@@ -167,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                     width: 80,
                     height: 50,
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       "En",
                       textDirection: TextDirection.ltr,
                     ),

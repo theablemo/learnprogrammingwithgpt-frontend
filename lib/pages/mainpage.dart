@@ -73,7 +73,7 @@ class _MainPageState extends State<MainPage> {
                 child: IconButton(
                   splashRadius: 2,
                   onPressed: () {
-                    FlutterClipboard.copy(codeSegment!)
+                    FlutterClipboard.copy(codeSegment)
                         .then((value) => print('copied'));
                   },
                   icon: const Icon(
@@ -221,7 +221,6 @@ class _MainPageState extends State<MainPage> {
                   child: ElevatedButton(
                     child: Text('logout'.tr),
                     onPressed: () {
-                      // print(responseData);
                       Navigator.pop(context);
                     },
                   ),

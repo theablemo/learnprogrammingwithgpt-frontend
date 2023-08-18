@@ -73291,7 +73291,7 @@ A.wf.prototype={
 af(){var s=$.c3()
 return new A.On([],A.nC(s,A.ajg(),t.p_),A.nC(s,A.ain(),t.cx),A.nC(s,A.amW(),t.pa),B.j)}}
 A.On.prototype={
-abL(a){var s,r,q,p,o,n,m,l,k=null,j=t.p,i=A.b([],j),h=A.bX("```python([\\s\\S]*?)```",!0,!1,!1).kj(0,a)
+abL(a){var s,r,q,p,o,n,m,l,k=null,j=t.p,i=A.b([],j),h=A.bX("```python([\\s\\S]*?)```|```([\\s\\S]*?)```",!0,!1,!1).kj(0,a)
 for(s=new A.mh(h.a,h.b,h.c),r=t.Qz,q=0;s.q();){p=s.d
 o=(p==null?r.a(p):p).b
 n=o.index

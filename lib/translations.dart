@@ -18,6 +18,8 @@ class Languages extends Translations {
           'exercise_solution_prompt': 'جواب این تمرین را به من بده',
           'choose_lesson': 'اولین درس خود را انتخاب کنید!',
           'logout': 'خروج',
+          'example_id':
+              '(یا می‌توانید برای امتحان کردن برنامه، کد 0000 را وارد کنید.)'
         },
         'en_US': {
           'greeting': 'Hello👋',
@@ -35,6 +37,8 @@ class Languages extends Translations {
               'Give me the solution to the last exercise',
           'choose_lesson': 'Choose your very first lesson!',
           'logout': 'logout',
+          'example_id':
+              '(Or to try out the application, you can enter code 0000.)'
         },
       };
 }
