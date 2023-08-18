@@ -1,3 +1,4 @@
-# introductory_programming_frontend_teacher
+# learnprogramminwithgpt.com Frontend Code
 
-A new Flutter project.
+This repo provides the frontend code for the [learnprogramminwithgpt.com](learnprogrammingwithgpt.com) website. <br/>
+This website is intended to use for the research paper named ... and it uses OpenAI's API to use get answers.
