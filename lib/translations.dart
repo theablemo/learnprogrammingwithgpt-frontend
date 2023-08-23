@@ -49,7 +49,7 @@ class Languages extends Translations {
               '(Because of OpenAI\'s API, this operation may take a while. Please wait...)',
           'about': 'About',
           'about_content':
-              'This platform was made initially for the paper \'Leveraging ChatGPT for Adaptive Learning through Personalized Prompt-based Instruction: A CS1 Education Case Study\'. The paper is currently under review, and after that name of the creators will be published.',
+              'This platform was initially made for the paper \'Leveraging ChatGPT for Adaptive Learning through Personalized Prompt-based Instruction: A CS1 Education Case Study\'. The paper is currently under review, and after that name of the creators will be published.',
           'cool': 'Cool!'
         },
       };
