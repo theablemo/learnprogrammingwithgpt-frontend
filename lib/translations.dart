@@ -21,7 +21,11 @@ class Languages extends Translations {
           'example_id':
               '(یا می‌توانید برای امتحان کردن برنامه، کد 0000 را وارد کنید.)',
           'this_may_take_a_while':
-              'به دلیل کند بودن API OpenAI، این عملیات ممکن است کمی طول بکشد. لطفا صبر کنید...'
+              'به دلیل کند بودن API OpenAI، این عملیات ممکن است کمی طول بکشد. لطفا صبر کنید...',
+          'about': 'درباره',
+          'about_content':
+              'این پلتفرم در ابتدا برای مقاله \'Leveraging ChatGPT for Adaptive Learning through Personalized Prompt-based Instruction: A CS1 Education Case Study\' ساخته شده است. این مقاله در حال بررسی است و پس از آن نام سازندگان منتشر خواهد شد.',
+          'cool': 'عالیه!'
         },
         'en_US': {
           'greeting': 'Hello👋',
@@ -42,7 +46,11 @@ class Languages extends Translations {
           'example_id':
               '(Or to try out the application, you can enter code 0000.)',
           'this_may_take_a_while':
-              '(Because of OpenAI\'s API, this operation may take a while. Please wait...)'
+              '(Because of OpenAI\'s API, this operation may take a while. Please wait...)',
+          'about': 'About',
+          'about_content':
+              'This platform was made initially for the paper \'Leveraging ChatGPT for Adaptive Learning through Personalized Prompt-based Instruction: A CS1 Education Case Study\'. The paper is currently under review, and after that name of the creators will be published.',
+          'cool': 'Cool!'
         },
       };
 }

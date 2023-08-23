@@ -47,170 +47,208 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Stack(
+      fit: StackFit.expand,
       children: [
-        Text(
-          'greeting'.tr,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        Text(
-          'enter_code'.tr,
-          style: const TextStyle(
-            fontSize: 15,
-          ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          'example_id'.tr,
-          style: const TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 11,
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Container(
-          // margin: EdgeInsets.symmetric(horizontal: 100),
-          width: 400,
-          child: FormBuilderTextField(
-            name: 'id',
-            // textAlign: TextAlign.right,
-            decoration: InputDecoration(
-              hintText: 'id'.tr,
-              floatingLabelAlignment: FloatingLabelAlignment.center,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'greeting'.tr,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            onChanged: (val) {
-              id = val!;
-            },
-          ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        if (id_bad)
-          Text(
-            'wrong_id'.tr,
-            style: const TextStyle(
-              color: Colors.red,
-              fontSize: 13,
+            const SizedBox(
+              height: 30,
             ),
-          ),
-        waiting
-            ? const CircularProgressIndicator()
-            : ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    waiting = true;
-                  });
-                  fetchData(id).then((value) {
-                    if (!(value as String).startsWith("Error")) {
-                      Navigator.push(
-                        context,
-                        PageTransition(
-                          type: PageTransitionType.bottomToTop,
-                          child: MainPage(responseData: value, id: id),
-                        ),
-                      );
-                    }
-                  });
+            Text(
+              'enter_code'.tr,
+              style: const TextStyle(
+                fontSize: 15,
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              'example_id'.tr,
+              style: const TextStyle(
+                fontWeight: FontWeight.w300,
+                fontSize: 11,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              // margin: EdgeInsets.symmetric(horizontal: 100),
+              width: 400,
+              child: FormBuilderTextField(
+                name: 'id',
+                // textAlign: TextAlign.right,
+                decoration: InputDecoration(
+                  hintText: 'id'.tr,
+                  floatingLabelAlignment: FloatingLabelAlignment.center,
+                ),
+                onChanged: (val) {
+                  id = val!;
                 },
-                child: Text(
-                  'accept'.tr,
-                  style: const TextStyle(
-                    fontSize: 15,
-                  ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            if (id_bad)
+              Text(
+                'wrong_id'.tr,
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 13,
                 ),
               ),
-        SizedBox(
-          height: 50,
-        ),
-        Text(
-          "choose_language".tr,
-          style: const TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        // Container(
-        //   width: 600,
-        //   child: Divider(
-        //     color: Colors.grey,
-        //   ),
-        // ),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-          width: 200,
-          child: GetBuilder<MainController>(
-            builder: (_) => Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    _.setLocale(LocaleEnum.EN);
-                    Get.updateLocale(const Locale('en', 'US'));
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: _.locale == LocaleEnum.EN
-                          ? Colors.amber
-                          : const Color.fromRGBO(0, 0, 0, 0),
-                      border: Border.all(
-                        color: Colors.amber,
-                        width: 3,
-                      ),
-                    ),
-                    width: 80,
-                    height: 50,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "En",
-                      textDirection: TextDirection.ltr,
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    _.setLocale(LocaleEnum.FA);
-                    Get.updateLocale(const Locale('fa', 'IR'));
-                  },
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    width: 80,
-                    height: 50,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: _.locale == LocaleEnum.FA
-                          ? Colors.amber
-                          : Color.fromRGBO(0, 0, 0, 0),
-                      border: Border.all(
-                        color: Colors.amber,
-                        width: 3,
-                      ),
-                    ),
+            waiting
+                ? const CircularProgressIndicator()
+                : ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        waiting = true;
+                      });
+                      fetchData(id).then((value) {
+                        if (!(value as String).startsWith("Error")) {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.bottomToTop,
+                              child: MainPage(responseData: value, id: id),
+                            ),
+                          );
+                        }
+                      });
+                    },
                     child: Text(
-                      "فا",
-                      textDirection: TextDirection.rtl,
+                      'accept'.tr,
+                      style: const TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ),
-                ),
-              ],
+            const SizedBox(
+              height: 50,
             ),
+            Text(
+              "choose_language".tr,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            // Container(
+            //   width: 600,
+            //   child: Divider(
+            //     color: Colors.grey,
+            //   ),
+            // ),
+            const SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              width: 200,
+              child: GetBuilder<MainController>(
+                builder: (_) => Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {
+                        _.setLocale(LocaleEnum.EN);
+                        Get.updateLocale(const Locale('en', 'US'));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: _.locale == LocaleEnum.EN
+                              ? Colors.amber
+                              : const Color.fromRGBO(0, 0, 0, 0),
+                          border: Border.all(
+                            color: Colors.amber,
+                            width: 3,
+                          ),
+                        ),
+                        width: 80,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "En",
+                          textDirection: TextDirection.ltr,
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        _.setLocale(LocaleEnum.FA);
+                        Get.updateLocale(const Locale('fa', 'IR'));
+                      },
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 80,
+                        height: 50,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: _.locale == LocaleEnum.FA
+                              ? Colors.amber
+                              : Color.fromRGBO(0, 0, 0, 0),
+                          border: Border.all(
+                            color: Colors.amber,
+                            width: 3,
+                          ),
+                        ),
+                        child: const Text(
+                          "فا",
+                          textDirection: TextDirection.rtl,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Positioned(
+          top: 10,
+          left: 10,
+          child: IconButton(
+            icon: const Icon(
+              Icons.info_outline,
+              // color: Colors.grey,
+            ),
+            onPressed: () {
+              Get.defaultDialog(
+                title: 'about'.tr,
+                titleStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                content: SizedBox(
+                  width: 300,
+                  child: Text(
+                    'about_content'.tr,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                textCancel: 'cool'.tr,
+                radius: 5,
+                titlePadding: const EdgeInsets.all(20),
+                contentPadding: const EdgeInsets.all(
+                  20,
+                ),
+              );
+            },
+            splashRadius: 20,
           ),
         ),
       ],
