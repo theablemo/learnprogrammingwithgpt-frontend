@@ -19,7 +19,9 @@ class Languages extends Translations {
           'choose_lesson': 'اولین درس خود را انتخاب کنید!',
           'logout': 'خروج',
           'example_id':
-              '(یا می‌توانید برای امتحان کردن برنامه، کد 0000 را وارد کنید.)'
+              '(یا می‌توانید برای امتحان کردن برنامه، کد 0000 را وارد کنید.)',
+          'this_may_take_a_while':
+              'به دلیل کند بودن API OpenAI، این عملیات ممکن است کمی طول بکشد. لطفا صبر کنید...'
         },
         'en_US': {
           'greeting': 'Hello👋',
@@ -38,7 +40,9 @@ class Languages extends Translations {
           'choose_lesson': 'Choose your very first lesson!',
           'logout': 'logout',
           'example_id':
-              '(Or to try out the application, you can enter code 0000.)'
+              '(Or to try out the application, you can enter code 0000.)',
+          'this_may_take_a_while':
+              '(Because of OpenAI\'s API, this operation may take a while. Please wait...)'
         },
       };
 }

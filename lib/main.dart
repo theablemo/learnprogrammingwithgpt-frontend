@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       translations: Languages(),
       locale: const Locale("en", "US"),
+      title: "Learn Programming with GPT",
       home: const Scaffold(
         backgroundColor: Color.fromRGBO(254, 251, 234, 1),
         body: Center(

@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
       children: [
         Text(
           'greeting'.tr,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),

@@ -8,6 +8,7 @@ import 'package:introductory_programming_frontend_teacher/controllers/gptControl
 import 'package:introductory_programming_frontend_teacher/controllers/mainController.dart';
 import 'package:introductory_programming_frontend_teacher/controllers/userController.dart';
 import 'package:introductory_programming_frontend_teacher/widgets/side_tile_summary.dart';
+import 'package:shimmer/shimmer.dart';
 import 'dart:convert';
 
 import '../models/user.dart';
@@ -164,15 +165,36 @@ class _MainPageState extends State<MainPage> {
                     ),
                     ...categoriesList.map((e) {
                       if (e is Categ) {
-                        return SideTileCategory(
-                          title: e.name,
-                          topics: e.topics,
+                        return GetBuilder<GPTController>(
+                          builder: (_) => Shimmer.fromColors(
+                            enabled: _.loading,
+                            baseColor: Colors.black,
+                            highlightColor:
+                                _.loading ? Colors.white : Colors.black,
+                            child: IgnorePointer(
+                              ignoring: _.loading,
+                              child: SideTileCategory(
+                                title: e.name,
+                                topics: e.topics,
+                              ),
+                            ),
+                          ),
                         );
                       } else {
-                        return SideTileSummary(
-                          title: e.name,
-                          texts: e.summaries,
-                          summary: e,
+                        return GetBuilder<GPTController>(
+                          builder: (_) => Shimmer.fromColors(
+                            enabled: _.loading,
+                            baseColor: Colors.black,
+                            highlightColor:
+                                _.loading ? Colors.white : Colors.black,
+                            child: IgnorePointer(
+                                ignoring: _.loading,
+                                child: SideTileSummary(
+                                  title: e.name,
+                                  texts: e.summaries,
+                                  summary: e,
+                                )),
+                          ),
                         );
                       }
                     }).toList()
@@ -180,15 +202,27 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
               const VerticalDivider(thickness: 2),
-              Container(
+              SizedBox(
                 width: mq.size.width >= 1000
                     ? mq.size.width * 0.72
                     : mq.size.width * 0.45,
                 child: Center(
                   child: GetBuilder<GPTController>(builder: (_) {
                     if (_.loading) {
-                      return const SpinKitThreeBounce(
-                        color: Colors.amber,
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SpinKitThreeBounce(
+                            color: Colors.amber,
+                          ),
+                          Text(
+                            'this_may_take_a_while'.tr,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 11,
+                            ),
+                          )
+                        ],
                       );
                     } else {
                       return Container(
@@ -201,7 +235,7 @@ class _MainPageState extends State<MainPage> {
                             horizontal: 20,
                           ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ...highlightCodeSegmentsNew(_.gptAnswer)
                             ],
