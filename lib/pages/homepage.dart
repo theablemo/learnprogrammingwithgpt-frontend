@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:introductory_programming_frontend_teacher/controllers/mainController.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:convert';
 
 import 'mainpage.dart';
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<dynamic> fetchData(String id) async {
     String url =
-        'https://back.learnprogrammingwithgpt.com/login?id=$id&lang=${mainController.locale == LocaleEnum.EN ? 'en' : 'fa'}';
+        '${dotenv.env['API_BASE_URL']}/login?id=$id&lang=${mainController.locale == LocaleEnum.EN ? 'en' : 'fa'}';
     final response = await http.get(Uri.parse(url));
     dynamic responseData;
 

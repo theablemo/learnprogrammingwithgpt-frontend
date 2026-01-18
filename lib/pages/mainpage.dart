@@ -152,11 +152,85 @@ class _MainPageState extends State<MainPage> {
                 child: SingleChildScrollView(
                   child: Column(children: [
                     GetBuilder<UserController>(
-                      builder: (_) => Text(
-                        'greeting_name'.trParams(
-                          {
-                            'name': _.user.name,
-                          },
+                      builder: (_) => InkWell(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text("User Info"),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            "Name: ",
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          const SizedBox(height: 4),
+                                          SelectableText(
+                                            _.user.name,
+                                            style:
+                                                const TextStyle(fontSize: 14),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 15),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            "Introduction: ",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const Text(
+                                            "(Used to personalize the learning experience)",
+                                            style: TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                                color: Colors.grey),
+                                          ),
+                                          const SizedBox(height: 4),
+                                          SelectableText(
+                                            _.user.introText,
+                                            style:
+                                                const TextStyle(fontSize: 14),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('close'.tr),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        child: Text(
+                          'greeting_name'.trParams(
+                            {
+                              'name': _.user.name,
+                            },
+                          ),
+                          style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.blue,
+                          ),
                         ),
                       ),
                     ),

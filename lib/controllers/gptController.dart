@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -19,9 +20,7 @@ class GPTController extends GetxController {
 
   Future<void> getResponseFromAPI(List prompt, dynamic topic) async {
     setLoading(true);
-    final apiUrl =
-        'https://back.learnprogrammingwithgpt.com/prompt'; // Replace with your Flask app URL
-    // 'http://127.0.0.1:5000/prompt';
+    final apiUrl = '${dotenv.env['API_BASE_URL']}/prompt';
 
     try {
       final response = await http.post(
