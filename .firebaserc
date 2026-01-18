@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "hci-research-gpt"
-  }
+    "default": "hci-research-gpt",
+    "hci-research-gpt": "hci-research-gpt"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -1,11 +1,17 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:introductory_programming_frontend_teacher/config.dart';
 import 'package:introductory_programming_frontend_teacher/pages/homepage.dart';
 import 'package:introductory_programming_frontend_teacher/translations.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: ".env");
+  if (!kIsWeb) {
+    await dotenv.load(fileName: ".env");
+  }
+  debugPrint('kIsWeb=$kIsWeb');
+  debugPrint('API_BASE_URL="${AppConfig.apiBaseUrl}"');
   runApp(const MainApp());
 }
 

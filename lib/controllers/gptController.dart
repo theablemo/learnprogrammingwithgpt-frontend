@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:introductory_programming_frontend_teacher/config.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -20,7 +21,7 @@ class GPTController extends GetxController {
 
   Future<void> getResponseFromAPI(List prompt, dynamic topic) async {
     setLoading(true);
-    final apiUrl = '${dotenv.env['API_BASE_URL']}/prompt';
+    final apiUrl = '${AppConfig.apiBaseUrl}/prompt';
 
     try {
       final response = await http.post(
